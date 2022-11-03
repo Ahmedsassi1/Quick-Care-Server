@@ -11,6 +11,7 @@ const { Expo } = require("expo-server-sdk");
   let expo = new Expo({
     accessToken: "yOKSPPPPziwyHIpCty9kmHeauQblRwHxYdk-dkdA",
   });
+  //sending notification via and expo SDK server
 module.exports.sendNotification =async (pushToken,messageNumber) => {
   let message = [];
   if (!Expo.isExpoPushToken(pushToken)) {
@@ -18,6 +19,7 @@ module.exports.sendNotification =async (pushToken,messageNumber) => {
   }
   console.log("ahmed", pushToken);
   if (messageNumber===1){
+    //notification for emergency 
   message.push({
     to: pushToken,
     sound: "default",
@@ -28,6 +30,7 @@ module.exports.sendNotification =async (pushToken,messageNumber) => {
   });
 }
 if (messageNumber===2){
+  //notification for doctor response 
   message.push({
     to: pushToken,
     sound: "default",
@@ -41,6 +44,7 @@ if (messageNumber===2){
     color: "#077871",
   });
 }
+//sending notification to the server
   let chunk = expo.chunkPushNotifications(message);
   let ticket = [];
   (async () => {
@@ -58,6 +62,14 @@ if (messageNumber===2){
     }
    })();
   } 
+
+
+ //experimenting with firebase and expo sdk
+
+
+
+
+
 // const fcm = require('fcm-notification');
 // const FCM = new fcm(serviceAccount);
 // var token = 'cAdW-AotRwWzMQuSHG0Ypj:APA91bEUjzO0Qc3ACQXerYwbBqTigeYUzRsFT-I24nk94Y39XXdPsP2JGQUUYBr5Tea6Y7TuqvpfeIdBrS3VNzbSDUYcmdYsrvHALz4UfNyl9mxP4uGI-t-3rOzYivUOUPTA9kEeykAV';

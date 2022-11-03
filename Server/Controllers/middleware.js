@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const db = require("../Database/index");
 const dotenv = require("dotenv");
 dotenv.config();
+//middelware for doctor
 async function requireAuhDoc(req, res, next) {
   try {
     //read the token from the header or url
@@ -26,7 +27,7 @@ async function requireAuhDoc(req, res, next) {
     res.status(403).json("unauthorized");
   }
 }
-
+//middelware for patient
 async function requireAuthPat(req, res, next) {
   try {
     const token = req.cookies.Authorization;
@@ -44,7 +45,7 @@ async function requireAuthPat(req, res, next) {
     res.status(403).json("unauthorized");
   }
 }
-
+//midelware for Hce
 async function requireAuthHce(req, res, next) {
   try {
     const token = req.cookies.Authorization;

@@ -64,7 +64,7 @@ module.exports = {
       res.status(400).send(error);
     }
   },
-
+//patient login
   patientAuthentification: async (req, res) => {
     try {
       let filter = {
@@ -98,7 +98,7 @@ module.exports = {
       return res.status(400).json("Somthing went wrong");
     }
   },
-
+//One patient info
   getInformationsOfPatient: async (req, res) => {
     console.log(req.params.id);
     try {
@@ -124,7 +124,7 @@ module.exports = {
     }
   },
 
-  //update First name
+  //update Patient
   UpdatePatient: async (req, res) => {
     try {
       let filter = {
@@ -139,7 +139,7 @@ module.exports = {
       res.status(401).json("failed");
     }
   },
-
+//adding expo notification of the device in database
   expoNotification: async (req, res) => {
     try {
       let filter = {
@@ -192,6 +192,8 @@ module.exports = {
   //     res.status(401).json("failed")
   //   }
   // },
+
+  //logout for patient
   logout: async (req, res) => {
     try {
       res.clearCookie("Authorization");

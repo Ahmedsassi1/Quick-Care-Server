@@ -16,6 +16,7 @@ const {
   getAllOKRequests,
   markAsDone,
   getAllOKDoneRequests,
+  DoctorActifRequest
 } = require("../Controllers/RequestControllers");
 router.get("/getAll/:id", findHceReq);
 router.get("/getAllActive", findActiveHceReq);
@@ -36,5 +37,6 @@ router.put("/putDoctorId", requireAuhDoc, takeInCharge);
 router.get("/getAllOKRequests", getAllOKRequests);
 router.get("/getAllOKDoneRequests", requireAuhDoc, getAllOKDoneRequests);
 router.put("/markasdone", requireAuhDoc, markAsDone);
+router.post("/checkDocRequest",DoctorActifRequest)
 
 module.exports = router;

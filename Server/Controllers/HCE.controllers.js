@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = {
+  //adding a Hce
   addHce: async (req, res) => {
     const characters =
       "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -41,6 +42,7 @@ module.exports = {
       res.status(555).send(error);
     }
   },
+  //verifying account with the node mailer code  
   verifyCode: async (req, res) => {
     try {
       let filter = { activationCode: req.body.activationCode };
@@ -53,6 +55,8 @@ module.exports = {
       res.status(400).send(error);
     }
   },
+
+  //Hce login 
   hceAuthentification: async (req, res) => {
     try {
       let filter = {
@@ -84,6 +88,8 @@ module.exports = {
       res.status(401).json(error);
     }
   },
+
+//getting one Hce info
   gettingOneHce: async (req, res) => {
     try {
       let filter = {
@@ -96,6 +102,7 @@ module.exports = {
       res.status(400).send("error");
     }
   },
+  //logout for Hce
   logout : async (req, res) => {
     try {
       res.clearCookie("Authorization");

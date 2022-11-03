@@ -38,6 +38,8 @@ module.exports = {
   //     }
   //   },
   //    //method to add a post to the database via the respective model function.
+
+  //add doctor to the database
   addDoctor: async (req, res) => {
     try {
       let activationCode = "";
@@ -73,6 +75,7 @@ module.exports = {
     }
   },
 
+  //login for doctor
   loginDoc: async (req, res) => {
     try {
       const doctor = {
@@ -109,7 +112,7 @@ module.exports = {
   },
 
   //   //method to update a post to the database via the respective model function.
-
+//getting one doctor info
   getOneDoc: async (req, res) => {
     try {
       // const doctor = {
@@ -126,6 +129,8 @@ module.exports = {
       res.status(401).send(err);
     }
   },
+
+  //update the doctor profile
   updateDocProfile: async (req, res) => {
     try {
       const oneDoc = await db.Doctors.findOne({
@@ -158,6 +163,8 @@ module.exports = {
     }
   },
 
+  //logout for doctor 
+
   logout: async (req, res) => {
     try {
       res.clearCookie("Authorization");
@@ -167,6 +174,8 @@ module.exports = {
       return res.status(401).json(err);
     }
   },
+
+  //verifying the code send with nodemailer
   verifyCode: async (req, res) => {
     try {
       //find one Doctor with his id as a filter
